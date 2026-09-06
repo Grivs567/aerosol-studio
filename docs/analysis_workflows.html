@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Analysis Workflows &#8212; Aerosol Studio 0.1.0</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=a66d8bb5" />
+    <script src="_static/documentation_options.js?v=e2ace07a"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="User Guide" href="user_guide.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Aerosol Studio</a></h1>
+
+
+
+<p class="blurb">Interactive aerosol particle size distribution analysis</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#roi-fitting-workflow">ROI Fitting Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fit-methods">Fit Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#surface-and-volume-density">Surface and Volume Density</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#large-dataset-interaction">Large Dataset Interaction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="user_guide.html" title="previous chapter">User Guide</a></li>
+      <li>Next: <a href="troubleshooting.html" title="next chapter">Troubleshooting</a></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="analysis-workflows">
+<h1>Analysis Workflows<a class="headerlink" href="#analysis-workflows" title="Link to this heading">¶</a></h1>
+<section id="roi-fitting-workflow">
+<h2>ROI Fitting Workflow<a class="headerlink" href="#roi-fitting-workflow" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Load a dataset and confirm the heatmap looks physically reasonable.</p></li>
+<li><p>Draw a ROI around the event or background period.</p></li>
+<li><p>Select a fitting method.</p></li>
+<li><p>Run the fit.</p></li>
+<li><p>Inspect the heatmap markers, size-distribution markers, and diameter strip.</p></li>
+<li><p>Fit a growth-rate line when the fitted points represent a coherent growth
+trajectory.</p></li>
+<li><p>Save the session.</p></li>
+</ol>
+</section>
+<section id="fit-methods">
+<h2>Fit Methods<a class="headerlink" href="#fit-methods" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>Appearance Time</dt><dd><p>Estimates the first meaningful appearance of particles in each diameter
+channel. Useful for leading-edge event timing.</p>
+</dd>
+<dt>Mode Diameter</dt><dd><p>Fits lognormal modal structure and tracks modal diameter evolution.</p>
+</dd>
+<dt>Gaussian LSQ</dt><dd><p>Fits a constrained Gaussian curve to time-series or distribution structure.</p>
+</dd>
+<dt>GMM Fit</dt><dd><p>Uses mixture modeling where multiple overlapping structures may be present.</p>
+</dd>
+<dt>MCC Cross-Correlation</dt><dd><p>Computes growth rate from time lag between size channels inside the selected
+ROI. Use the MCC diagnostic plot to check whether the upper diameter channel
+plausibly lags the lower diameter channel.</p>
+</dd>
+</dl>
+</section>
+<section id="surface-and-volume-density">
+<h2>Surface and Volume Density<a class="headerlink" href="#surface-and-volume-density" title="Link to this heading">¶</a></h2>
+<p>Surface and volume density views are calculated through the <a class="reference external" href="https://github.com/jlpl/aerosol-functions">aerosol-functions</a>
+surface and volume distribution helpers. Color-limit text boxes use compact
+scientific formatting so small physical values do not display as zero.</p>
+</section>
+<section id="large-dataset-interaction">
+<h2>Large Dataset Interaction<a class="headerlink" href="#large-dataset-interaction" title="Link to this heading">¶</a></h2>
+<p>The display path is optimized separately from the analysis path. Heatmap and
+overlay rendering use display-oriented sampling so interactive changes remain
+responsive. Fitting and ROI calculations continue to use the loaded dataframe
+instead of the downsampled display buffer.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      
+      |
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

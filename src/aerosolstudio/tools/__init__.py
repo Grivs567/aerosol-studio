@@ -1,0 +1,1 @@
+"""GUI tool configuration helpers."""

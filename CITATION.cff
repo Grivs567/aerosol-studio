@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use Aerosol Studio in research, please cite this software."
+title: "Aerosol Studio: An Open Toolkit for Particle Size Distribution Analysis"
+version: "0.1.0"
+type: software
+authors:
+  - family-names: "Srivastav"
+    given-names: "Gaurav Kumar"
+    affiliation: "Centre for Atmospheric Sciences, Indian Institute of Technology Delhi"
+  - family-names: "Lampilahti"
+    given-names: "Janne"
+    affiliation: "Institute for Atmospheric and Earth System Research (INAR), University of Helsinki"
+  - family-names: "Lehtipalo"
+    given-names: "Katrianne"
+    affiliation: "Institute for Atmospheric and Earth System Research (INAR), University of Helsinki"
+  - family-names: "Gani"
+    given-names: "Shahzad"
+    affiliation: "Centre for Atmospheric Sciences, Indian Institute of Technology Delhi; Institute for Atmospheric and Earth System Research (INAR), University of Helsinki"
+repository-code: "https://github.com/Grivs567/aerosol-studio"
+license: "MIT"
+abstract: >
+  Aerosol Studio is an interactive Python and Bokeh application for atmospheric
+  aerosol particle size distribution visualization, ROI-based analysis, fitting,
+  growth-rate exploration, and reproducible GUI analysis sessions.
+keywords:
+  - aerosol science
+  - atmospheric measurements
+  - particle size distribution
+  - new particle formation
+  - NetCDF
+  - CSV
+  - Bokeh
